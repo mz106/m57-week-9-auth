@@ -10,10 +10,19 @@ const addUser = async (req, res) => {
 
     res.status(201).json({ message: "success", user: user });
   } catch (error) {
-    jill.status(501).json({ message: error.message, error: error });
+    res.status(501).json({ message: error.message, error: error });
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    res.status(201).json({ message: "success" });
+  } catch (error) {
+    res.status(501).json({ message: error.message, error: error });
   }
 };
 
 module.exports = {
-  addUser,
+  addUser: addUser,
+  login: login,
 };
