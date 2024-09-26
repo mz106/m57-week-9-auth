@@ -19,7 +19,7 @@ const hashPass = async (req, res, next) => {
 const comparePass = async (req, res, next) => {
   try {
     // Step 1: find user using the username (req.body.username?)
-
+    const user = await User.findOne({ where: { username: req.body.username } });
     //Step 2: compare the plaintext password with the hashed password on the DB
     // i.e. bcrypt.compare() - will return true or false
 
